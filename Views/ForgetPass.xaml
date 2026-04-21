@@ -1,0 +1,83 @@
+﻿<UserControl
+    x:Class="AppMeS.Views.ForgetPass"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:AppMeS.Views"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com/"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <Style BasedOn="{StaticResource MaterialDesignRaisedButton}" TargetType="Button" />
+    </UserControl.Resources>
+
+    <!--  主卡片容器，与整体风格统一  -->
+    <materialDesign:Card
+        Padding="24"
+        Background="{DynamicResource MaterialDesignPaper}"
+        Effect="{StaticResource MaterialDesignShadowDepth2}"
+        UniformCornerRadius="8">
+
+        <StackPanel>
+            <!--  图标 + 标题  -->
+            <StackPanel Margin="0,0,0,20" HorizontalAlignment="Center">
+                <materialDesign:PackIcon
+                    Width="48"
+                    Height="48"
+                    Margin="0,0,0,8"
+                    HorizontalAlignment="Center"
+                    Foreground="{DynamicResource PrimaryHueMidBrush}"
+                    Kind="LockReset" />
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="20"
+                    FontWeight="SemiBold"
+                    Text="忘记密码？" />
+            </StackPanel>
+
+            <!--  提示信息区域  -->
+            <Border
+                Margin="0,0,0,20"
+                Padding="16"
+                Background="{DynamicResource MaterialDesignCardBackground}"
+                CornerRadius="6">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,8"
+                        HorizontalAlignment="Center"
+                        FontSize="14"
+                        FontWeight="Medium"
+                        Text="密码重置请联系系统管理员"
+                        TextWrapping="Wrap" />
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        FontSize="12"
+                        Foreground="{DynamicResource MaterialDesignBodyLight}"
+                        Text="联系方式：admin@ccd-system.com"
+                        TextWrapping="Wrap" />
+                </StackPanel>
+            </Border>
+
+            <!--  底部操作按钮  -->
+            <Button
+                Height="40"
+                Command="{Binding ConfirmCommand}"
+                Content="确 定"
+                FontSize="14"
+                Style="{StaticResource MaterialDesignRaisedButton}"
+                ToolTip="关闭对话框" />
+
+            <!--  可选：帮助链接  -->
+            <TextBlock
+                Margin="0,12,0,0"
+                HorizontalAlignment="Center"
+                FontSize="11"
+                Foreground="{DynamicResource MaterialDesignBodyLight}"
+                Text="如有疑问，请参阅帮助文档" />
+        </StackPanel>
+    </materialDesign:Card>
+</UserControl>
