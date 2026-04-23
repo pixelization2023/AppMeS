@@ -9,7 +9,7 @@
     <Win32Resource></Win32Resource>
   </PropertyGroup>
 
-  <ItemGroup>
+	<ItemGroup>
     <Content Include="微信图片_2026-04-22_171141_745.jpg" />
   </ItemGroup>
 

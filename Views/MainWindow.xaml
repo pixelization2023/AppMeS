@@ -164,7 +164,7 @@
                                VerticalAlignment="Center"
                                FontSize="12"
                                Text="PLC连接" />
-                            <TextBlock
+                           <TextBlock
                                Grid.Column="2"
                                VerticalAlignment="Center"
                                FontSize="12"

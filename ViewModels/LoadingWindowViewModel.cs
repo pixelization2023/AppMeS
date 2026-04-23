@@ -43,19 +43,21 @@ namespace AppMeS.ViewModels
         {
             ProgressValue = 0;
             StatusMessage = "正在初始化系统组件...";
+            _timer.Start();
+        }
 
             try
-            {
+        {
                 await LoadAsync();
                 RequestClose.Invoke(new DialogResult(ButtonResult.OK));
-            }
+        }
             catch (Exception ex)
-            {
+        {
                 _logger.Error(ex, "加载过程发生异常");
                 StatusMessage = $"加载失败: {ex.Message}";
                 await Task.Delay(1500);
                 RequestClose.Invoke(new DialogResult(ButtonResult.Cancel));
-            }
+        }
 
         }
 
@@ -112,7 +114,7 @@ namespace AppMeS.ViewModels
             // 步骤5: 完成
             UpdateProgress(100, "加载完成！");
             await Task.Delay(300); // 让用户看到 100%
-        }
+            }
 
         private void UpdateProgress(double value, string message = null)
         {
@@ -125,18 +127,18 @@ namespace AppMeS.ViewModels
             else
             {
                 _dispatcher.Invoke(() =>
-                {
+            {
                     ProgressValue = value;
                     if (message != null) StatusMessage = message;
                 });
             }
-        }
+            }
         private double _progressValue;
         public double ProgressValue
-        {
+            {
             get { return _progressValue; }
             set { SetProperty(ref _progressValue, value); }
-        }
+            }
 
         private string _statusMessage;
         public string StatusMessage
